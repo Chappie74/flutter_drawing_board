@@ -118,14 +118,9 @@ class _DrawingBoardState extends State<DrawingBoard>
     Widget content = ExValueBuilder<DrawConfig>(
       valueListenable: _drawingController.drawConfig,
       shouldRebuild: (DrawConfig p, DrawConfig n) => p.angle != n.angle,
-      child: Center(child: AspectRatio(aspectRatio: 1, child: _buildBoard)),
+      child: AspectRatio(aspectRatio: 1, child: _buildBoard),
       builder: (_, DrawConfig dc, Widget? child) {
-        return InteractiveViewer(
-          maxScale: 20,
-          minScale: 0.2,
-          boundaryMargin: EdgeInsets.all(MediaQuery.of(context).size.width),
-          child: child!,
-        );
+        return Container(child: child);
       },
     );
 
