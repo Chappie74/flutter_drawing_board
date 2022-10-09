@@ -109,7 +109,9 @@ class _DrawingBoardState extends State<DrawingBoard>
 
   @override
   void dispose() {
-    _drawingController.dispose();
+    if (widget.controller == null) {
+      _drawingController.dispose();
+    }
     super.dispose();
   }
 
